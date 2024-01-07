@@ -1,0 +1,21 @@
+﻿@model IEnumerable<string>
+@{
+    ViewData["Title"] = "ImageList";
+}
+
+<h1>Image List</h1>
+
+@foreach(var img in Model)
+{
+    <img width="100" height="100" src="/img/@img"/>
+    <h3>@img</h3>
+
+    <form asp-controller="Home" asp-action="Delete" method="post">
+
+        <input type="hidden" name="name" value="@img"/>
+        <button type="submit">Delete</button>
+
+    </form>
+
+    <br />
+}
